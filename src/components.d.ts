@@ -15,7 +15,6 @@ declare module 'vue' {
     ColorPicker: typeof import('primevue/colorpicker')['default']
     Divider: typeof import('primevue/divider')['default']
     Fieldset: typeof import('primevue/fieldset')['default']
-    Galleria: typeof import('primevue/galleria')['default']
     Image: typeof import('primevue/image')['default']
     Menubar: typeof import('primevue/menubar')['default']
     Panel: typeof import('primevue/panel')['default']

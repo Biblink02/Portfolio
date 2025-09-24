@@ -8,15 +8,15 @@ import TopChip from './TopChip.vue'
 
 const tabs = [
     {
-        title: 'Volunteering 🍴',
-        content:
-            "Since 2022, I have been volunteering at a local festival that attracts hundreds of attendees each evening. Initially, I served as a waiter, ensuring prompt and courteous service. Later, I transitioned to the kitchen, specializing in preparing grilled cheese. This experience has taught me to work effectively under pressure—after all, when a long line of hungry people is waiting, there's no room for hesitation!",
-        value: '0',
-    },
-    {
         title: 'IT Internship 💻',
         content:
             "During the summer of 2020, I interned at an IT company in Conegliano as a tester and database analyst. My responsibilities included identifying and resolving database inconsistencies, verifying data accuracy, and eliminating duplicate entries. Additionally, I worked with 3D models, creating new designs that were subsequently integrated into the company's application. This role honed my attention to detail and problem-solving skills, deepening my interest in technology and database management.",
+        value: '0',
+    },
+    {
+        title: 'Volunteering 🍴',
+        content:
+            "Since 2022, I have been volunteering at a local festival that attracts hundreds of attendees each evening. Initially, I served as a waiter, ensuring prompt and courteous service. Later, I transitioned to the kitchen, specializing in preparing grilled cheese. This experience has taught me to work effectively under pressure—after all, when a long line of hungry people is waiting, there's no room for hesitation!",
         value: '1',
     },
     {

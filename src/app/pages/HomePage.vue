@@ -116,6 +116,14 @@ function changeMenuTo(key: string) {
             >
                 Passionate about coding, curious about everything.
             </h2>
+            <div class="m-auto w-fit pt-4">
+                <a href="/files/CV-AlbertoBottari.pdf"
+                   aria-label="Download CV link"
+                   download
+                   class="text-sm px-3 py-1 rounded-md shadow border text-favourite_yellow hover:underline hover:underline-offset-3">
+                    Download CV
+                </a>
+            </div>
         </header>
 
         <!-- Navigation -->

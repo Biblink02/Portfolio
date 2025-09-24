@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router'
 import './bootstrap'
@@ -9,8 +9,10 @@ import '@fontsource-variable/inter'
 import PrimeVue from 'primevue/config'
 import LocaleIt from 'primelocale/it.json'
 import Aura from '@primevue/themes/aura'
-import { definePreset } from '@primevue/themes'
-import { createHead } from '@unhead/vue/client'
+import {definePreset} from '@primevue/themes'
+import {createHead} from '@unhead/vue/client'
+import {DARK_CLASSNAME} from "./ts/Utils";
+
 const head = createHead()
 const app = createApp(App)
 const customPreset = definePreset(Aura, {
@@ -35,10 +37,11 @@ app.use(router)
     .use(PrimeVue, {
         theme: {
             preset: customPreset,
+            options: {
+                darkModeSelector: "." + DARK_CLASSNAME,
+            },
         },
-        options: {
-            darkModeSelector: true,
-        },
+
         locale: LocaleIt['it'],
     })
     .use(head)

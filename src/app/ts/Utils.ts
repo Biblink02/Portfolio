@@ -3,3 +3,11 @@ export const getCssVar = (varName: string) => {
         .getPropertyValue(varName)
         .trim()
 }
+export function detectSystemTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+}
+export function toggleDarkMode() {
+    document.documentElement.classList.toggle(DARK_CLASSNAME);
+}
+
+export const DARK_CLASSNAME = 'dark';

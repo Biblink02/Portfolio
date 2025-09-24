@@ -1,4 +1,4 @@
-import profile_picture from '~/images/heading/profile_pictures.jpg'
+import profile_picture from '~/images/heading/Biblink-Icon.png'
 import master_degree from '~/images/curriculum/master_degree.png'
 import bachelor_degree from '~/images/curriculum/bachelor_degree.png'
 import birth from '~/images/curriculum/conegliano.png'

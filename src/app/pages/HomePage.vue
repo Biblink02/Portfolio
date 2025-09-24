@@ -8,6 +8,7 @@ import ContactMenu from './menu/ContactMenu.vue'
 import darkModeFavicon from '~/images/favicon/briefcase-white.png'
 import favicon from '~/images/favicon/briefcase-black.png'
 import { useHead } from '@unhead/vue'
+import {toggleDarkMode} from "../ts/Utils";
 
 useHead({
     title: "Alberto Bottari's Portfolio",
@@ -63,10 +64,35 @@ const menuItems = ref(
 function changeMenuTo(key: string) {
     menuItems.value.forEach((item, k) => (item.active = k === key))
 }
+
+
 </script>
 
 <template>
+
     <div class="max-w-7xl w-full mx-auto pt-4 p-1 sm:p-4 md:p-7 space-y-10">
+        <!-- Scroll to Top Button -->
+        <ScrollTop
+            :pt="{
+                root: {
+                    style: { background: 'var(--color-favourite_yellow)' },
+                },
+            }"
+        />
+
+        <!-- Dark Mode -->
+        <button
+            @click="toggleDarkMode"
+            class="lg:fixed absolute cursor-pointer top-9 right-9 text-favourite_yellow"
+            title="Toggle Dark Mode"
+        >
+            <div class="hidden dark:block">
+                <i class="pi pi-sun hidden" style="font-size: 1.6rem"></i>
+            </div>
+            <div class="dark:hidden">
+                <i class="pi pi-moon hidden" style="font-size: 1.5rem"></i>
+            </div>
+        </button>
         <!-- Header -->
         <header aria-labelledby="site-header">
             <div class="my-auto pb-6">
@@ -77,9 +103,14 @@ function changeMenuTo(key: string) {
                 />
             </div>
 
-            <h1 id="site-header" class="m-auto py-1 w-fit font-bold text-xl">
+            <h1 class="m-auto py-1 w-fit font-bold text-2xl text-center tracking-wide dark:text-gray-200 text-gray-800">
                 Alberto Bottari
+                <br>
+                <i class="pi pi-spin pi-arrow-right-arrow-left text-favourite_yellow"></i>
+                <br>
+                Biblink
             </h1>
+
             <h2
                 class="pt-1 m-auto w-fit max-sm:w-full max-sm:text-center max-sm:justify-center"
             >
@@ -103,12 +134,7 @@ function changeMenuTo(key: string) {
                                 v-bind="props"
                                 @click="changeMenuTo(item[0])"
                                 :aria-current="item[1].active ? 'page' : false"
-                                :class="[
-                                    'px-4 rounded-md transition duration-300 cursor-pointer',
-                                    item[1].active
-                                        ? 'text-favourite_yellow'
-                                        : '',
-                                ]"
+                                :class="['px-4 rounded-md transition duration-300 cursor-pointer py-2 sm:py-0',item[1].active ? 'text-favourite_yellow': '',]"
                             >
                                 <span :class="item[1].icon" class="mr-2" />
                                 {{ item[1].label }}
@@ -157,14 +183,6 @@ function changeMenuTo(key: string) {
             </section>
         </main>
 
-        <!-- Scroll to Top Button -->
-        <ScrollTop
-            :pt="{
-                root: {
-                    style: { background: 'var(--color-favourite_yellow)' },
-                },
-            }"
-        />
 
         <!-- Footer -->
         <footer aria-labelledby="footer-section">
@@ -176,4 +194,6 @@ function changeMenuTo(key: string) {
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@theme {
+    --color-favourite_yellow: #FFAA00
+}
+#app {
+    @apply h-full;
+
+}
+
+.headerless-panel {
+    --p-panel-header-padding: 0;
+    --p-panel-content-padding: 0.25rem;
+    --p-panel-footer-padding: 0;
+}
+
+.custom-carousel {
+    --p-carousel-indicator-active-background: var(--color-favourite_yellow);
+
+}

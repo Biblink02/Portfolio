@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import ColorCuriosities from '../partials/ColorCuriosities.vue'
-import {personalInfoCarousel, responsiveOptions} from '../../ts/ImageHelper'
+import {personalInfoCarousel, responsiveOptions} from '@/ImageHelper'
 import proxmoxDarkMode from '~/images/personal-info/proxmoxDarkMode.svg'
 import proxmox from '~/images/personal-info/proxmox.svg'
 import filamentDarkMode from '~/images/personal-info/filamentDarkMode.svg'
 import filament from '~/images/personal-info/filament.svg'
-import { useDark } from '@vueuse/core'
+import {useDark} from '@vueuse/core'
 
 const isDarkMode = useDark()
 
@@ -55,13 +55,13 @@ const skills = [
         header: 'Technologies 🤖',
         elements: [
             {icon: 'devicon-git-plain', link: 'https://git-scm.com/'},
+            {icon: 'devicon-cmake-plain', link: 'https://cmake.org/'},
             {icon: 'devicon-docker-plain-wordmark', link: 'https://www.docker.com/'},
             {icon: 'devicon-laravel-plain-wordmark', link: 'https://laravel.com/'},
             {icon: 'devicon-tailwindcss-plain-wordmark', link: 'https://tailwindcss.com/'},
-            {icon: 'pi pi-prime', link: 'https://primevue.org/'},
-            {image: isDarkMode ? filamentDarkMode : filament, alt: 'Filament', link: 'https://filamentphp.com/'},
-            {image: isDarkMode ? proxmoxDarkMode : proxmox, alt: 'Proxmox', link: 'https://www.proxmox.com/'},
-            //PrimeVue',
+            //{icon: 'pi pi-prime', link: 'https://primevue.org/'},
+            {image: {light: filament, dark: filamentDarkMode}, alt: 'Filament', link: 'https://filamentphp.com/'},
+            {image: {light: proxmox, dark: proxmoxDarkMode}, alt: 'Proxmox', link: 'https://www.proxmox.com/'},
         ]
     },
 ];
@@ -150,7 +150,7 @@ const skills = [
 
                                         <!-- Render image-based icons -->
                                         <img v-else-if="element.image"
-                                             :src="element.image"
+                                             :src="isDarkMode ? element.image.dark : element.image.light"
                                              :alt="element.icon"
                                              class="w-full max-w-[10rem] y-fit">
                                     </a>

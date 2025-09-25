@@ -13,7 +13,6 @@ declare module 'vue' {
     Carousel: typeof import('primevue/carousel')['default']
     Chip: typeof import('primevue/chip')['default']
     ColorPicker: typeof import('primevue/colorpicker')['default']
-    Divider: typeof import('primevue/divider')['default']
     Fieldset: typeof import('primevue/fieldset')['default']
     Image: typeof import('primevue/image')['default']
     Menubar: typeof import('primevue/menubar')['default']

@@ -4,14 +4,13 @@ import router from './router'
 import './bootstrap'
 import '../resources/css/app.css'
 import 'primeicons/primeicons.css'
-// Supports weights 100-900
+import 'devicon/devicon.min.css'
 import '@fontsource-variable/inter'
 import PrimeVue from 'primevue/config'
 import LocaleIt from 'primelocale/it.json'
 import Aura from '@primevue/themes/aura'
 import {definePreset} from '@primevue/themes'
 import {createHead} from '@unhead/vue/client'
-import {DARK_CLASSNAME} from "./ts/Utils";
 
 const head = createHead()
 const app = createApp(App)
@@ -38,7 +37,7 @@ app.use(router)
         theme: {
             preset: customPreset,
             options: {
-                darkModeSelector: "." + DARK_CLASSNAME,
+                darkModeSelector: ".dark",
             },
         },
 

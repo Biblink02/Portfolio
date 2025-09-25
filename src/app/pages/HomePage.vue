@@ -1,64 +1,32 @@
 <script setup lang="ts">
-import { headerImage } from '../ts/ImageHelper'
-import { onMounted, ref } from 'vue'
+import {headerImage} from '@/ImageHelper'
+import {ref} from 'vue'
 import CurriculumMenu from './menu/CurriculumMenu.vue'
 import PersonalInfo from './menu/PersonalInfoMenu.vue'
 import ProjectsMenu from './menu/ProjectsMenu.vue'
 import ContactMenu from './menu/ContactMenu.vue'
-import darkModeFavicon from '~/images/favicon/briefcase-white.png'
-import favicon from '~/images/favicon/briefcase-black.png'
-import { useHead } from '@unhead/vue'
-import {toggleDarkMode} from "../ts/Utils";
-import { useDark } from '@vueuse/core'
+import {useDark, useToggle} from '@vueuse/core'
 
 const isDarkMode = useDark()
-useHead({
-    title: "Alberto Bottari's Portfolio",
-    link: [
-        {
-            rel: 'icon',
-            type: 'image/png',
-            href: isDarkMode //TODO vedi se funziona
-                ? darkModeFavicon
-                : favicon,
-        },
-    ],
-})
-
-onMounted(() => {
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.textContent = JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Alberto Bottari',
-        jobTitle: 'Software Developer',
-        url: window.location.origin,
-        sameAs: [
-            'https://linkedin.com/in/albertobottari',
-            'https://github.com/albertobottari',
-        ],
-    })
-    document.head.appendChild(script)
-})
+const toggleDarkMode = useToggle(isDarkMode)
 
 const menuItems = ref(
     new Map([
         [
             'personal-info',
-            { label: 'Personal Info', icon: 'pi pi-user', active: true },
+            {label: 'Personal Info', icon: 'pi pi-user', active: true},
         ],
         [
             'projects',
-            { label: 'Projects', icon: 'pi pi-folder', active: false },
+            {label: 'Projects', icon: 'pi pi-folder', active: false},
         ],
         [
             'curriculum',
-            { label: 'Curriculum', icon: 'pi pi-file', active: false },
+            {label: 'Curriculum', icon: 'pi pi-file', active: false},
         ],
         [
             'contact',
-            { label: 'Contact', icon: 'pi pi-envelope', active: false },
+            {label: 'Contact', icon: 'pi pi-envelope', active: false},
         ],
     ])
 )
@@ -74,6 +42,7 @@ function changeMenuTo(key: string) {
 
     <div class="max-w-7xl w-full mx-auto pt-4 p-1 sm:p-4 md:p-7 space-y-10">
         <!-- Scroll to Top Button -->
+
         <ScrollTop
             :pt="{
                 root: {
@@ -84,9 +53,9 @@ function changeMenuTo(key: string) {
 
         <!-- Dark Mode -->
         <button
-            @click="toggleDarkMode"
+            @click="toggleDarkMode()"
             class="lg:fixed absolute cursor-pointer top-9 right-9 text-favourite_yellow"
-            title="Toggle Dark Mode"
+            :title="'Toggle ' + (isDarkMode ? 'Light' : 'Dark') + ' Mode'"
         >
             <div class="hidden dark:block">
                 <i class="pi pi-sun hidden" style="font-size: 1.6rem"></i>
@@ -119,7 +88,7 @@ function changeMenuTo(key: string) {
                 Passionate about coding, curious about everything.
             </h2>
             <div class="m-auto w-fit pt-4">
-                <a href="/files/CV-AlbertoBottari.pdf"
+                <a href="/files/Alberto-Bottari-CV.pdf"
                    aria-label="Download CV link"
                    download
                    class="text-sm px-3 py-1 rounded-md shadow border text-favourite_yellow hover:underline hover:underline-offset-3">
@@ -146,7 +115,7 @@ function changeMenuTo(key: string) {
                                 :aria-current="item[1].active ? 'page' : false"
                                 :class="['px-4 rounded-md transition duration-300 cursor-pointer py-2 sm:py-0',item[1].active ? 'text-favourite_yellow': '',]"
                             >
-                                <span :class="item[1].icon" class="mr-2" />
+                                <span :class="item[1].icon" class="mr-2"/>
                                 {{ item[1].label }}
                             </button>
                         </li>
@@ -165,7 +134,7 @@ function changeMenuTo(key: string) {
                 <h3 id="personal-info-section" class="sr-only">
                     Personal Information
                 </h3>
-                <PersonalInfo />
+                <PersonalInfo/>
             </section>
 
             <section
@@ -173,7 +142,7 @@ function changeMenuTo(key: string) {
                 aria-labelledby="projects-section"
             >
                 <h3 id="projects-section" class="sr-only">Projects</h3>
-                <ProjectsMenu />
+                <ProjectsMenu/>
             </section>
 
             <section
@@ -181,7 +150,7 @@ function changeMenuTo(key: string) {
                 aria-labelledby="curriculum-section"
             >
                 <h3 id="curriculum-section" class="sr-only">Curriculum</h3>
-                <CurriculumMenu />
+                <CurriculumMenu/>
             </section>
 
             <section
@@ -189,7 +158,7 @@ function changeMenuTo(key: string) {
                 aria-labelledby="contact-section"
             >
                 <h3 id="contact-section" class="sr-only">Contact</h3>
-                <ContactMenu />
+                <ContactMenu/>
             </section>
         </main>
 

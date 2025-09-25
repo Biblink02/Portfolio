@@ -13,8 +13,24 @@
     --p-panel-content-padding: 0.25rem;
     --p-panel-footer-padding: 0;
 }
+.custom-icon {
+    font-size: 5rem;
+}
 
 .custom-carousel {
     --p-carousel-indicator-active-background: var(--color-favourite_yellow);
 
 }
+
+.CVButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px white;
+    color: white;
+    text-decoration: none;
+}
+

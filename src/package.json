@@ -39,6 +39,7 @@
         "@tailwindcss/postcss": "^4.0.3",
         "@tailwindcss/vite": "^4.0.6",
         "@unhead/vue": "^2.0.0-alpha.19",
+        "@vueuse/core": "^13.9.0",
         "primeicons": "^7.0.0",
         "primelocale": "^1.6.0",
         "primevue": "^4.2.5",

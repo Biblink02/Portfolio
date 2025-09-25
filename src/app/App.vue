@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
-import {detectSystemTheme, toggleDarkMode} from "./ts/Utils";
+import {toggleDarkMode} from "./ts/Utils";
+import { useDark } from '@vueuse/core'
 
 onMounted(() => {
-    if(detectSystemTheme()) {
+    if(useDark()) { //TODO vedi se funziona
         toggleDarkMode()
     }
 })

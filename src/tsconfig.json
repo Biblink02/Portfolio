@@ -18,25 +18,27 @@
         ],
         "typeRoots": [
             "node_modules/@types",
-            "./resources/ts/types"
+            "./app/ts/types"
         ],
         "paths": {
             "@/*": [
-                "./resources/ts/*"
+                "./app/*"
             ],
             "~/*": [
                 "./resources/*"
+            ],
+            "&/*": [
+                "./public/*"
             ]
         },
         "outDir": "public/build/assets",
         "skipLibCheck": true
     },
     "include": [
-        "./resources/ts/**/*.ts",
-        "./resources/ts/**/*.d.ts",
-        "./resources/ts/**/*.vue",
+        "./app/ts/**/*.ts",
+        "./app/**/*.d.ts",
+        "./app/**/*.vue",
         "./postcss.config.js",
-        "./tailwind.config.ts",
         "./vite.config.ts"
     ],
     "exclude": [

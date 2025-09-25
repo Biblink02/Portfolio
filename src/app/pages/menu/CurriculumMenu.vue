@@ -9,8 +9,6 @@ import MeaningfulExperiences from '../partials/MeaningfulExperiences.vue'
         <AcademicTimeline class="pb-6" />
     </section>
 
-    <Divider role="separator" aria-hidden="true" />
-
     <section aria-labelledby="experiences-section">
         <h2 id="experiences-section" class="sr-only">Meaningful Experiences</h2>
         <MeaningfulExperiences />

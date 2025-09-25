@@ -9,14 +9,16 @@ import darkModeFavicon from '~/images/favicon/briefcase-white.png'
 import favicon from '~/images/favicon/briefcase-black.png'
 import { useHead } from '@unhead/vue'
 import {toggleDarkMode} from "../ts/Utils";
+import { useDark } from '@vueuse/core'
 
+const isDarkMode = useDark()
 useHead({
     title: "Alberto Bottari's Portfolio",
     link: [
         {
             rel: 'icon',
             type: 'image/png',
-            href: window.matchMedia('(prefers-color-scheme: dark)').matches
+            href: isDarkMode //TODO vedi se funziona
                 ? darkModeFavicon
                 : favicon,
         },
